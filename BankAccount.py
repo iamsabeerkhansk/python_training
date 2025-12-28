@@ -19,9 +19,24 @@ class Account:
 
     def checkbal(self):
         print(f"Balance is {self.balance}")
-
-
-acc1 = Account(1000, "acc123")
+'''
+acc1=Account(1000,"acc123")
 acc1.credit(500)
 acc1.debit(1000)
+acc1.getbal()
+'''
+class SavingsAccount(Account):
+    def __init__(self, intrest):
+        self.intrest = intrest
+        super().__init__(1000, "acc123")
+
+    def intrestrate(self):
+        intrest1 = self.balance * (self.intrest / 100)
+        self.balance += intrest1
+        print(self.getbal())
+
+
+acc1 = SavingsAccount(5)
+acc1.credit(500)
+acc1.intrestrate()
 acc1.checkbal()
